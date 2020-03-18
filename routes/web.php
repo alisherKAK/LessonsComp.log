@@ -11,6 +11,37 @@ use Klein\Klein;
 use Klein\Request;
 use Klein\Response;
 
-$router->get('/', function (Request $request, Response $response) {
-    return action('Site@index', $request, $response);
+$router->get('/', function(){
+    return action('Site@index');
+});
+
+//CRUD books
+$router->with('/books', function () use ($router){
+    $router->get('/?', function (){
+        return action('Book@index');
+    });
+
+    $router->get('/create', function (){
+        return action('Book@create');
+    });
+
+    $router->post('/create', function($req, $res) {
+        return action('Book@createPost', $req, $res);
+    });
+
+    $router->get('/update/[i:id]', function($req, $res){
+        return action('Book@update', $req, $res);
+    });
+
+    $router->post('/update/[i:id]', function($req, $res){
+        return action('Book@updatePost', $req, $res);
+    });
+
+    $router->post('/delete/[i:id]', function($req, $res){
+        return action('Book@delete', $req, $res);
+    });
+
+    $router->get('/[i:id]', function($req, $res) {
+        return action('Book@details', $req, $res);
+    });
 });
