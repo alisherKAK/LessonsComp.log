@@ -3,9 +3,9 @@
 
 namespace Step\Core;
 
-use Smarty;
+use SmartyBC;
 
-class RenderEngine extends Smarty
+class RenderEngine extends SmartyBC
 {
     protected static $instance;
 

@@ -10,6 +10,9 @@ class SiteController
 {
     function index() {
         $books = Book::all();
+        $books = array_reverse($books);
+        $books = array_slice($books, 0, 3);
+
         return view('index', [
             'books' => $books
         ]);
