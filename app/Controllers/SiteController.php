@@ -4,7 +4,9 @@
 namespace Step\Controllers;
 
 use Klein\Request;
+use Step\Core\Encrypter;
 use Step\Models\Book;
+use Step\Models\User;
 
 class SiteController
 {

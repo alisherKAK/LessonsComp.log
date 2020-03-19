@@ -55,3 +55,12 @@ function view($name, array $variables = []) {
 
     return $engine->fetch($name);
 }
+
+function session($key, $value = null) {
+    if($value === null){
+        return $_SESSION[$key] ?? null;
+    }
+
+    $_SESSION[$key] = $value;
+    return session($key);
+}

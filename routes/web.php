@@ -15,14 +15,28 @@ $router->get('/', function(){
     return action('Site@index');
 });
 
+$router->with('/login', function () use ($router) {
+    $router->get('/?', function (){
+       return action('Login@form');
+    });
+
+    $router->post('/?', function($req, $res){
+       return action('Login@make', $req, $res);
+    });
+});
+
+$router->get('/logout', function($req, $res) {
+    return action('Login@logout', $req, $res);
+});
+
 //CRUD books
 $router->with('/books', function () use ($router){
     $router->get('/?', function (){
         return action('Book@index');
     });
 
-    $router->get('/create', function (){
-        return action('Book@create');
+    $router->get('/create', function ($req, $res){
+        return action('Book@create', $req, $res);
     });
 
     $router->post('/create', function($req, $res) {

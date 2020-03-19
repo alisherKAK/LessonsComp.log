@@ -16,6 +16,10 @@ class RenderEngine extends SmartyBC
         $path = config('app.views_path');
         $this->setTemplateDir($path );
         $this->setCompileDir($path . DIRECTORY_SEPARATOR. '_compiled');
+
+        $this->assign('auth', Auth::check());
+        $this->assign('app', config('app'));
+        $this->assign('user', Auth::user());
     }
 
     static function instance(): self {
