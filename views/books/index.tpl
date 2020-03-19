@@ -4,7 +4,7 @@
 <ul>
 {foreach $books as $book}
 <li>
-        <a href="/books/{$book->id}">
+        <a href="/books/{$book->id}" class="link">
                 {$book->name}
         </a>
 </li>

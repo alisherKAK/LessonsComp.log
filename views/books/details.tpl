@@ -1,9 +1,9 @@
 {extends file='layouts/main.tpl'}
 
 {block name='content'}
-<a href="/books/update/{$book->id}">Edit</a>
+<a href="/books/update/{$book->id}" class="link">Edit</a>
 <a href="/books/delete/{$book->id}"
-   style="color: tomato"
+   class="link"
    onclick="event.preventDefault(); document.getElementById('delete-{$book->id}').submit()">
     Delete
 </a>

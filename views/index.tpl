@@ -5,7 +5,7 @@
         <h2>Last three books</h2>
         {foreach $books as $book}
             <div>
-                <a href="/books/{$book->id}">
+                <a href="/books/{$book->id}" class="link">
                     {$book->name}
                 </a>
             </div>
